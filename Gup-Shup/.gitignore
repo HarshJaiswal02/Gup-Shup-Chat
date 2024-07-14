@@ -16,3 +16,6 @@ Thumbs.db
 
 # Environment variables
 .env
+
+# VS code lint
+.vscode
