@@ -1,31 +1,29 @@
 import express from "express";
-import { config } from "dotenv";
-import { chats } from "./data/data.js";
+import cors from "cors";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
-config({
-  path: "./.env",
-});
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  })
+);
 
-const PORT = process.env.PORT;
+app.use(express.json()); 
 
-app.get("/", (req, res) => {
-  //   console.log("Home req :", req.body);
-  res.send("Server!! Home");
-});
+app.use(express.static("public"));
+app.use(cookieParser());
 
-app.get("/api/v1/chats", (req, res) => {
-  //   console.log("api point req:", req.body);
-  res.send(chats);
-});
+//ROUTES 
 
-app.get("/api/v1/chats/:id", (req, res) => {
-  const data = chats.filter((c) => c._id === req.params.id);
-  console.log(data);
-  res.send(data);
-});
+import userRouter from "./routes/userRoutes";
+import chatRouter from "./routes/chatRoutes";
+import userRouter from "./routes/messageRoutes";
 
-app.listen(PORT, () => {
-  console.log(`Server running on port: ${PORT}`);
-});
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/chat", chatRouter);
+app.use("/api/v1/message", messageRouter);
+
+export { app };

@@ -1,19 +1,19 @@
-import SignUpForm from "./Authentication/SignUpForm";
-import LoginForm from "./Authentication/LoginForm";
+import SignUpForm from "../Component/Authentication/SignUpForm";
+import LoginForm from "../Component/Authentication/LoginForm";
 import { useState } from "react";
 
 const Home = () => {
   const [isLogin, setIsLogin] = useState(true);
-
+  // lex flex-col items-center justify-center min-w-96 mx-auto
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div className="flex flex-col items-center justify-center  min-h-screen">
       <h1 className="text-4xl font-bold mb-8">Gup-Shup</h1>
-      <div className="w-full max-w-sm p-4 bg-white rounded shadow-md">
+      <div className=" p-4 bg-white rounded shadow-md">
         {isLogin ? <LoginForm /> : <SignUpForm />}
         <div className="text-center mt-4">
           {isLogin ? (
             <p>
-              Create an account
+              Create an account{" "}
               <button
                 className="text-blue-500 hover:underline"
                 onClick={() => setIsLogin(false)}

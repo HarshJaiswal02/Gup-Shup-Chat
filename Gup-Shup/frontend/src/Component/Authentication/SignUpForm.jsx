@@ -1,74 +1,68 @@
-import { useState } from "react";
-
-const SignUpForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  
+const SignUp = () => {
   return (
-    <form>
-      <div className="mb-4">
-        <label className="block text-gray-700">Name</label>
-        <input
-          name="name"
-          type="text"
-          className="w-full px-3 py-2 border rounded"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+    <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
+      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
+        <h1 className="text-3xl font-semibold text-center text-gray-300">
+          Sign Up to <span className="text-blue-500"> Gup-Shup</span>
+        </h1>
+
+        <form>
+          <div>
+            <label className="label p-2 ">
+              <span className="text-base label-text">Username</span>
+            </label>
+            <input
+              type="text"
+              placeholder="johndoe"
+              className="w-full input input-bordered h-10"
+            />
+          </div>
+
+          <div>
+            <label className="label">
+              <span className="text-base label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="w-full input input-bordered h-10"
+            />
+          </div>
+
+          <div>
+            <label className="label">
+              <span className="text-base label-text">Confirm Password</span>
+            </label>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              className="w-full input input-bordered h-10"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="label">Profile picture</label>
+            <input
+              type="file"
+              className="file-input file-input-ghost w-full max-w-xs"
+              accept="image/*"
+            />
+          </div>
+
+          <a
+            className="text-sm hover:underline hover:text-blue-600 mt-2 inline-block"
+            href="#"
+          >
+            Already have an account?
+          </a>
+
+          <div>
+            <button className="btn btn-block btn-sm mt-2 border border-slate-700">
+              Sign Up
+            </button>
+          </div>
+        </form>
       </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Email</label>
-        <input
-          name="email"
-          type="email"
-          className="w-full px-3 py-2 border rounded"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Password</label>
-        <input
-          name="password"
-          type="password"
-          className="w-full px-3 py-2 border rounded"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Password</label>
-        <input
-          name="confirmPassword"
-          type="confirmPassword"
-          className="w-full px-3 py-2 border rounded"
-          placeholder="Confirm password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Profile picture</label>
-        <input
-          type="file"
-          className="w-full px-3 py-2 border rounded"
-          placeholder="Enter your password"
-          accept="image/*"
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
-      >
-        Sign Up
-      </button>
-    </form>
+    </div>
   );
 };
-
-export default SignUpForm;
+export default SignUp;
